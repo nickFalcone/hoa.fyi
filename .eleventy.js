@@ -27,6 +27,16 @@ module.exports = function(eleventyConfig) {
     return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat("yyyy-LL-dd");
   });
 
+  eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
+
+  eleventyConfig.addCollection("lawsAscending", (collection) =>
+    collection.getFilteredByGlob("laws/*.md").sort((a, b) => {
+      if (a.data.state > b.data.state) return 1;
+      else if (a.data.state < b.data.state) return -1;
+      else return 0;
+    })
+  );
+
   // Get the first `n` elements of a collection.
   eleventyConfig.addFilter("head", (array, n) => {
     if (n < 0) {
