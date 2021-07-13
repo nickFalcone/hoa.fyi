@@ -13,7 +13,7 @@ Latest information about Homeowners' Associations
 <label for="state">State</label>
   <select on="change:AMP.navigateTo(url=event.value)">
   <option selected disabled>Select a state</option>  
-  {%- for law in collections.law -%}
+  {%- for law in collections.lawsAscending -%}
     <option value="{{ law.data.state | slug }}">{{ law.data.state }}</option>
   {%- endfor -%}
   </select>

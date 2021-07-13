@@ -2,6 +2,7 @@
 layout: layouts/law.njk
 state: North Carolina
 tags: law
+title: North Carolina HOA law
 description: North Carolina homeowners association hoa laws
 templateClass: tmpl-law 
 ---
